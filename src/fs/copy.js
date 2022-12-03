@@ -16,7 +16,7 @@ const copy = async () => {
             if (error) throw new Error ('FS operation failed');
             fs.mkdir(copy_file, (error) => {
                 if (error) throw new Error ('FS operation failed');
-                });
+            });
             fs.readdir(path_link, (error, files) => {
                 if (error) throw new Error ('!!!');
                 files.forEach(file => {
