@@ -1,4 +1,4 @@
-import  fs from 'fs';
+import  fs, { ReadStream } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -8,7 +8,10 @@ const file_for_read = path.join(__dirname, 'files', 'fileToRead.txt');
 
 
 const read = async () => {
-    const read_stream = fs.ReadStream(file_for_read);
-};
+    const read_stream = fs.createReadStream(file_for_read, {encoding: 'utf8'});
+    read_stream.on('data', (event) => {
+        console.log(event);
+    });    
+}
 
 await read();
