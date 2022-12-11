@@ -16,7 +16,7 @@ const decompress = async () => {
     const read_zip = fs.createReadStream(path_file_zip);
     const write_zip = fs.createWriteStream(path_file_for, { encoding: 'utf8'});
     pipeline(read_zip, gzip, write_zip, (error) => {
-        if (error) throw new Error('File not compress');
+        if (error) throw new Error('File not decompress');
     });
 };
 
